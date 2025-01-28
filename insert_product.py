@@ -28,8 +28,8 @@ def insert_cart_products(cookies,products):
     for i in range(100):
         
         p=random.choice(products)
-        print("http://127.0.0.1:5000/cart/{}".format(p[0]))
-        r=requests.post("http://127.0.0.1:5000/cart/{}".format(p[0]),cookies=cookies)
+        print("http://localhost:5000/cart/{}".format(p[0]))
+        r=requests.post("http://localhost:5000/cart/{}".format(p[0]),cookies=cookies)
         
         if r.status_code==200:
             print(r)
@@ -51,7 +51,7 @@ def login(username, password):
         "username":username,
         "password": password
     }
-    r=session.post("http://127.0.0.1:5000/login", data=payload)
+    r=session.post("http://localhost:5000/login", data=payload)
     if r.status_code==200:
         "Logged in successfully"
         return session.cookies
